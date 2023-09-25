@@ -9,12 +9,18 @@ function respond(res, delay) {
   }, delay);
 }
 
+function compute(i) {
+  // do some computation with i
+}
+
 app.get("/fast", function (req, res) {
   respond(res, 0);
 });
 
 app.get("/slow1", function (req, res) {
-  for (let i = 0; i < 9999999999999999999999999; i++);
+  for (let i = 0; i < 9999999999999999999999999; i++) {
+    compute(i);
+  }
   respond(res, 0);
 });
 
